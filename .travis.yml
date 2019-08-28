@@ -11,3 +11,4 @@ services:
   -mongodb
 before_script:
   -mongo task-manager-api-test --eval 'db.createUser({user:"travis",pwd:"test",roles:["readWrite"]});'
+scripts: npm run test
