@@ -12,11 +12,10 @@ test('Should Signup a new User', async () => {
         password:"mypass777"
     }).expect(200);
 
-    //Assert that database changed succesfully
+
     const user = await User.findById(response.body.user._id);
     expect(user).not.toBeNull();
 
-    // Assertions about the response body
     expect(response.body).toMatchObject({
         user: {
             name: 'Andrew',
@@ -41,7 +40,7 @@ test('should login existing user', async () => {
 test('should not login nonexisent user', async () => {
     await request(app).post('/users/login').send({
         email: userTwo.email,
-        password: userTwo.password
+        password: 'Thisisnotmypassword'
     }).expect(400);
 });
 
