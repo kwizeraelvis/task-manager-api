@@ -21,7 +21,7 @@ async function CreateUser(req, res) {
             user, token
         });
     }catch (e) {
-        res.send().status(400);
+        res.status(400).send(e);
     }
  }
 
@@ -49,7 +49,7 @@ async function CreateUser(req, res) {
 
 
 async function GetProfile(req, res) {
-    res.send(req.user);
+    res.status(200).send(req.user);
 }
 
 async function GetAllUsers(req, res){
@@ -100,7 +100,7 @@ async function deleteUser(req, res){
     try {
         await req.user.remove();
         sendCancellationEmail(req.user.email, req.user.name);
-        res.send(req.user).status(200)
+        res.status(200).send(req.user)
     } catch (e) {
         res.status(400).send(e)
     }
