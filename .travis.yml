@@ -16,4 +16,4 @@ services:
   - mongodb
 
 before_script:
-  -mongo task-manager-api-test;
+  -mongo task-manager-api-test
