@@ -13,4 +13,4 @@ services:
   - mongodb
 
 before_script:
-  - mongo task-manager-api-test --eval
+  - mongo task-manager-api-test
